@@ -1,0 +1,8 @@
+from watcher import run_watcher
+from scheduler import run_daily_report
+from notifier import notify_start
+
+if __name__ == "__main__":
+    notify_start()
+    run_watcher()
+    run_daily_report()

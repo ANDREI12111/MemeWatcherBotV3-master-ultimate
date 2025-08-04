@@ -1,0 +1,17 @@
+import schedule
+import time
+from notifier import send_telegram_message, send_push_message
+
+def daily_report():
+    # TODO: Реализовать сбор статистики
+    report = "📊 Ежедневный отчёт:\n\nPnL за день: +7.2%\nСделок: 52\nОшибок: 0"
+    send_telegram_message(report)
+    send_push_message(report)
+
+def run_daily_report():
+    schedule.every().day.at("21:00").do(daily_report)
+    print("[Scheduler] Расписание запущено")
+
+    while True:
+        schedule.run_pending()
+        time.sleep(30)

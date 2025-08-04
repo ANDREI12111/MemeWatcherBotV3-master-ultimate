@@ -1,0 +1,28 @@
+from notifier import send_telegram_message, send_push_message
+from config import TAKE_PROFIT, MAX_SLIPPAGE, PRIORITY_FEE_ENABLED
+
+def analyze_and_trade(token_info):
+    try:
+        symbol = token_info.get("symbol")
+        liquidity = token_info.get("liquidity")
+        holders = token_info.get("holders")
+        insider_risk = token_info.get("insider_risk", False)
+
+        # Фильтр по рискам
+        if insider_risk or liquidity < 1000:
+            print(f"[SKIP] {symbol} — рискованный токен")
+            return
+
+        # Анализ и вход
+        print(f"[TRADE] Вхожу в {symbol}")
+        send_telegram_message(f"🚀 Вход в {symbol}")
+        send_push_message(f"🚀 Вход в {symbol}")
+
+        # TODO: Здесь будет реальный вход в сделку через RPC
+
+        # Мнимый Take Profit (для прототипа)
+        print(f"[TAKE PROFIT] Выход из {symbol} при x{TAKE_PROFIT}")
+        send_push_message(f"✅ Сделка по {symbol} закрыта (TP x{TAKE_PROFIT})")
+
+    except Exception as e:
+        print(f"[Trader Error] {e}")

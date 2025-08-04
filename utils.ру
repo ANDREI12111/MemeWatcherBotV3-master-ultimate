@@ -1,0 +1,12 @@
+import random
+
+def get_new_tokens(rpc_url):
+    # TODO: Реальный парсинг новых токенов из RPC или API
+    # Заглушка с примерами
+    tokens = [
+        {"symbol": "DOGEMOON", "liquidity": 1500, "holders": 712, "insider_risk": False},
+        {"symbol": "RUGPULL", "liquidity": 420, "holders": 2, "insider_risk": True},
+        {"symbol": "PEPEMAX", "liquidity": 3000, "holders": 1250, "insider_risk": False}
+    ]
+    print(f"[Utils] Обнаружено {len(tokens)} токенов")
+    return random.sample(tokens, k=2)  # Заглушка: случайные 2 токена

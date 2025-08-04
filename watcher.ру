@@ -1,0 +1,17 @@
+import time
+from trader import analyze_and_trade
+from config import RPC_URL
+from utils import get_new_tokens
+
+def run_watcher():
+    print("[Watcher] Запуск слежения за новыми токенами...")
+
+    while True:
+        try:
+            new_tokens = get_new_tokens(RPC_URL)
+            for token in new_tokens:
+                analyze_and_trade(token)
+        except Exception as e:
+            print(f"[Watcher Error] {e}")
+
+        time.sleep(15)  # Пауза между циклами

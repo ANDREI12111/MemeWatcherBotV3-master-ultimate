@@ -1,0 +1,22 @@
+from config import MAX_WALLET_BALANCE, BITGET_WITHDRAW_ADDRESS
+from notifier import send_push_message
+
+def get_wallet_balance():
+    # TODO: Реально подключить RPC или API
+    return 523.7  # Пример текущего баланса
+
+def auto_withdraw_excess():
+    try:
+        balance = get_wallet_balance()
+        if balance > MAX_WALLET_BALANCE:
+            excess = round(balance - MAX_WALLET_BALANCE, 2)
+            print(f"[WITHDRAW] Отправляю {excess} USDC на Bitget")
+            send_push_message(f"💸 Автоотправка {excess} USDC на Bitget")
+
+            # TODO: Сделать транзакцию через RPC
+
+        else:
+            print("[OK] Баланс в пределах нормы")
+
+    except Exception as e:
+        print(f"[Wallet Error] {e}")

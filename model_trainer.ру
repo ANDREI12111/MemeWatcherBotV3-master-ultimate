@@ -1,0 +1,26 @@
+import json
+import os
+
+MODEL_PATH = "model_params.json"
+
+def train_model(historical_data):
+    # TODO: Реальная логика обучения на данных
+    result = {
+        "min_liquidity": 1200,
+        "max_holder_percent": 25,
+        "min_volume": 8000
+    }
+    with open(MODEL_PATH, "w") as f:
+        json.dump(result, f)
+    print("[ModelTrainer] Модель обучена")
+
+def load_model_params():
+    if os.path.exists(MODEL_PATH):
+        with open(MODEL_PATH, "r") as f:
+            return json.load(f)
+    else:
+        return {
+            "min_liquidity": 1000,
+            "max_holder_percent": 30,
+            "min_volume": 5000
+        }

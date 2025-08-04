@@ -1,0 +1,25 @@
+# Конфигурационные переменные
+
+# Telegram
+TELEGRAM_TOKEN = "8217293871:AAExcACUi5bBoaQZw-Mp00iSi7SLCv2farM"
+TELEGRAM_CHAT_ID = "785432703"
+
+# Pushover
+PUSHOVER_USER_KEY = "uh3jfbqmte4vry9fn2tkgszkqy8gsc"
+PUSHOVER_APP_TOKEN = "andi6ghtfw1jzzdhu2wjnx17yqpk5x"
+
+# Кошелёк
+WALLET_PUBLIC_KEY = "вставь_сюда_публичный_ключ"
+WALLET_PRIVATE_KEY = "вставь_сюда_секретный_ключ"
+
+# Лимиты
+MAX_WALLET_BALANCE = 500  # USDC
+BITGET_WITHDRAW_ADDRESS = "83eVJheMe6p4SdocrFow1NZiwL8UtubBDSZt6ZWkc9c"
+
+# RPC
+RPC_URL = "https://your-quicknode-url/"
+
+# Торговые параметры
+MAX_SLIPPAGE = 0.01  # 1%
+TAKE_PROFIT = 1.5  # x1.5 от входа
+PRIORITY_FEE_ENABLED = True
